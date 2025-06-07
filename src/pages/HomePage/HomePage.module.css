@@ -1,11 +1,13 @@
 .home {
     height: 100vh;
+    
     background: image-set(
         url('/src/assets/bg-home-1x.webp') 1x,
         url('/src/assets/bg-home-2x.webp') 2x) center center / cover no-repeat;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    overflow: hidden;
 }
 
 @media (max-width: 760px) {
@@ -26,11 +28,13 @@
     font-size: 2.5rem;
     margin-bottom: 1.875rem;
     color: #F7F7F7;
+    font-weight: 600;
 }
 
 .paragraph {
     font-size: 1.5rem;
     color: #F7F7F7;
+    font-weight: 400;
 }
 
 .ctaButton {
@@ -42,6 +46,7 @@
     border-radius: 200px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-weight: 500;
 }
 
 .ctaButton:hover {
