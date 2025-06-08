@@ -25,14 +25,11 @@ const applyFilters = (campers = [], filters) => {
 
 const CamperList = () => {
 
-    const { items: campers = [] } = useSelector(state => state.campers);
+ const campers = useSelector(state => state.campers.items);
 
     const status = useSelector(state => state.campers.status);
     const filters = useSelector(state => state.filters);
 
-    if (!Array.isArray(campers)) {
-  return <p>Loading campers...</p>
-}
 
     const filteredCampers = applyFilters(campers, filters);
 

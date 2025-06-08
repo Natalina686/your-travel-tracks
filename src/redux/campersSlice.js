@@ -22,7 +22,7 @@ const campersSlice = createSlice({
         })
         .addCase(loadCampers.fulfilled, (state, action) => {
             state.status= 'succeeded';
-            state.items = action.payload;
+            state.items = action.payload.items;
         })
         .addCase(loadCampers.rejected, (state,action) => {
             state.status = 'failed';

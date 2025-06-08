@@ -1,0 +1,24 @@
+.tabs {
+  display: flex;
+  gap: 18px;
+  margin: 24px 0;
+}
+
+.tab,
+.active {
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 12px;
+  background-color: #f2f4f7;
+  border: none;
+  cursor: pointer;
+  color: #101828;
+  transition: background-color 0.3s ease;
+}
+
+.active {
+  background-color: #e44848;
+  color: white;
+}
+

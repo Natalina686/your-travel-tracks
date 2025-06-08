@@ -1,8 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from './CamperCard.module.css';
 
 function CamperCard({ camper }) {
+    const navigate = useNavigate();
 const {
+    id,
     name,
     price,
     location,
@@ -10,6 +13,10 @@ const {
     description,
     gallery,
 } = camper;
+
+const handleShowMore = () => {
+    navigate(`/catalog/${id}`);
+}
 
     return (
         <div className={styles.card}>
@@ -29,7 +36,7 @@ const {
   </span>
                 </div>
                 <p className={styles.description}>{description}</p>
-                <button className={styles.button}>Show more</button>
+                <button className={styles.button} onClick={handleShowMore}>Show more</button>
 
             </div>
         

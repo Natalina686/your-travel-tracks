@@ -1,7 +1,9 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { lazy, Suspense } from "react";
 import Header from './components/Header/Header';
+import 'react-datepicker/dist/react-datepicker.css';
+
+
 
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
@@ -11,6 +13,7 @@ const CamperDetails = lazy(() => import('./pages/CamperDetails/CamperDetails'));
 function App() {
     return (
         <div>
+            <>
             <Header />
             <Suspense fallback={<div>Loading...</div>}>
             <Routes>
@@ -20,6 +23,7 @@ function App() {
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </Suspense>
+        </>
         </div>
     )
 }
