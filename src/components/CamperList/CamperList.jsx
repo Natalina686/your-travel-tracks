@@ -2,7 +2,10 @@ import { useSelector } from "react-redux";
 import CamperCard from '../CamperCard/CamperCard';
 import styles from './CamperList.module.css';
 
-const applyFilters = (campers, filters) => {
+const applyFilters = (campers = [], filters) => {
+    if (!Array.isArray(campers)) return [];
+    
+
     return campers.filter(camper => {
         if (filters.location && !camper.location.toLowerCase().includes(filters.location.toLowerCase())) {
             return false;
@@ -21,9 +24,15 @@ const applyFilters = (campers, filters) => {
 }
 
 const CamperList = () => {
-    const campers = useSelector(state => state.campers.items);
+
+    const { items: campers = [] } = useSelector(state => state.campers);
+
     const status = useSelector(state => state.campers.status);
     const filters = useSelector(state => state.filters);
+
+    if (!Array.isArray(campers)) {
+  return <p>Loading campers...</p>
+}
 
     const filteredCampers = applyFilters(campers, filters);
 

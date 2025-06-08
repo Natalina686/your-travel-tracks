@@ -13,22 +13,26 @@ const {
 
     return (
         <div className={styles.card}>
-            <img src={gallery?.[0]} alt={name} 
+            <img src={gallery?.[0]?.thumb} alt={name} 
             className={styles.image}/>
-            <div className={styles.info}>
+
+            
                 <div className={styles.header}>
-                    <h2>{name}</h2>
-                    <span className={styles.price}>{price.toLocaleString('en-US')},00₴</span>
+                    <h2 className={styles.title}>{name}</h2>
+                    <span className={styles.price}>{price.toLocaleString('en-US')},00€</span>
                 </div>
                 <div className={styles.meta}>
-                    <span>{location}</span>
-                    <span>⭐ {rating}</span>
+                    <span className={styles.location}>{location}</span>
+                    <span className={styles.rating}>
+                        
+    <span role="img" aria-label="star">⭐</span> {rating}
+  </span>
                 </div>
                 <p className={styles.description}>{description}</p>
                 <button className={styles.button}>Show more</button>
 
             </div>
-        </div>
+        
     )
 }
 export default CamperCard;
