@@ -7,6 +7,8 @@ import Tabs from "../../components/Tabs/Tabs";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {toast} from 'react-toastify';
+import { Tv, Snowflake, Utensils, Fan, CupSoda } from 'lucide-react';
+
 
 
 
@@ -23,6 +25,7 @@ const CamperDetails = () => {
     const [formData, setFormData] = useState({
   name: '',
   email: '',
+  comment: '',
 });
 
 
@@ -79,7 +82,8 @@ const handleSubmit = (e) => {
         return <p>Camper not found.</p>;
     }
 
-    const { name, price, location, rating, description, gallery, details, reviews } = camper;
+    const { name, price, location, rating, description, gallery, reviews } = camper;
+console.log('Camper:', camper);
 
     return (
         
@@ -97,20 +101,55 @@ const handleSubmit = (e) => {
     
       <p>{description}</p>
 
-      <Tabs onTabChange={setActiveTab} />
+      <div className={styles.amenities}>
+  
+  <ul className={styles.amenitiesList}>
+    <li><Snowflake size={20} /><span>Air Conditioning</span></li>
+    <li><Tv size={20} /><span>TV</span></li>
+    <li><Utensils size={20} /><span>Kitchen</span></li>
+    <li><Fan size={20} /><span>Fan</span></li>
+    <li><CupSoda size={20} /><span>Microwave</span></li>
+  </ul>
+</div>
 
-      {activeTab === 'Features' &&  details &&(
+<div className={styles.contentLayout}>
+  <div className={styles.leftContent}>
+      <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
+
+      {activeTab === 'Features' && (
         <div className={styles.tabContent}>
-          <ul>
-            <li><strong>Adults:</strong> {details?.adults}</li>
-            <li><strong>Engine:</strong> {details?.engine}</li>
-            <li><strong>Transmission:</strong> {details?.transmission}</li>
-            <li><strong>Fuel:</strong> {details?.form}</li>
-            <li><strong>Length:</strong> {details?.length} m</li>
-            <li><strong>Width:</strong> {details?.width} m</li>
-            <li><strong>Height:</strong> {details?.height} m</li>
-            <li><strong>Consumption:</strong> {details?.consumption}</li>
-          </ul>
+          <div className={styles.featureItem}>
+      <span className={styles.featureLabel}>Form</span>
+      <span className={styles.featureValue}>{camper.form}</span>
+      </div>
+    <div className={styles.featureItem}>
+      <span className={styles.featureLabel}>Engine</span>
+      <span className={styles.featureValue}>{camper.engine}</span>
+    </div>
+    <div className={styles.featureItem}>
+      <span className={styles.featureLabel}>Transmission</span>
+      <span className={styles.featureValue}>{camper.transmission}</span>
+    </div>
+    <div className={styles.featureItem}>
+      <span className={styles.featureLabel}>Fuel</span>
+      <span className={styles.featureValue}>{camper.form}</span>
+    </div>
+    <div className={styles.featureItem}>
+      <span className={styles.featureLabel}>Length</span>
+      <span className={styles.featureValue}>{camper.length}</span>
+    </div>
+    <div className={styles.featureItem}>
+      <span className={styles.featureLabel}>Width</span>
+      <span className={styles.featureValue}>{camper.width}</span>
+    </div>
+    <div className={styles.featureItem}>
+      <span className={styles.featureLabel}>Height</span>
+      <span className={styles.featureValue}>{camper.height}</span>
+    </div>
+    <div className={styles.featureItem}>
+      <span className={styles.featureLabel}>Consumption</span>
+      <span className={styles.featureValue}>{camper.consumption}</span>
+    </div>
         </div>
       )}
 
@@ -128,9 +167,9 @@ const handleSubmit = (e) => {
           )}
         </div>
       )}
-
+</div>
       
-        <div className={styles.tabContent}>
+        <div className={styles.rightContent}>
           <form className={styles.bookingForm} onSubmit={handleSubmit}>
 <h3 className={styles.formTitle}>Book your campervan now</h3>
       <p className={styles.formSubtitle}>
@@ -192,8 +231,9 @@ const handleSubmit = (e) => {
       />
             <button type="submit" className={styles.submitButton}>Send</button>
           </form>
-        </div>
-      
+        
+      </div>
+      </div>
     </div>
     
     )

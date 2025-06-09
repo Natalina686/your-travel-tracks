@@ -91,3 +91,150 @@
     flex-direction: column;
   }
 }
+
+.tabContent {
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #f7f7f7;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  
+}
+
+.featureItem {
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.featureLabel {
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.featureValue {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.amenities h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.amenitiesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+}
+
+.amenitiesList li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f4f4f4;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #333;
+}
+
+.contentLayout {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.leftContent {
+  flex: 2;
+}
+
+.rightContent {
+  flex: 1;
+  position: sticky;
+  top: 20px;
+}
+
+
+@media (min-width: 768px) {
+  .contentLayout {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .leftContent {
+    flex: 1;
+    padding-right: 20px;
+  }
+
+  .rightContent {
+    flex: 1;
+    max-width: 400px;
+  }
+}
+
+
+
+.reviews {
+  margin-top: 40px;
+}
+
+.reviewItem {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.reviewAuthor {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.reviewText {
+  font-size: 14px;
+  color: #444;
+}
+
+.contentLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+
+@media (min-width: 768px) {
+  .contentLayout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+
+.leftContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-right: 24px;
+}
+
+
+.rightContent {
+  flex: 1;
+  max-width: 400px;
+  position: sticky;
+  top: 20px;
+}
+
