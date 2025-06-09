@@ -35,14 +35,14 @@ const FilterPanel = () => {
 
     return (
         <div className={styles.filters}>
-            <label>
+            <label className={styles.sectionTitle}>
                 Location:
                 <input type="text" value={filters.location} onChange={handleLocationChange} placeholder=" Enter location"
-    className={styles.filterInput}/>
+    className={styles.filterInput }/>
             </label>
 Filters:
             <div className={styles.vehicleTypeGroup}>
-    <p>Vehicle type</p>
+    <p className={styles.sectionTitle}>Vehicle type</p>
     <div className={styles.buttonGroup}>
         <button
             type="button"

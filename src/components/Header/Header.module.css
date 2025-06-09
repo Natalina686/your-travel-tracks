@@ -10,8 +10,11 @@
 }
 
 .logo img {
-    height: 40px;
+    
     display: block;
+    width: 136;
+height: 16;
+
 }
 
 .nav {

@@ -8,6 +8,10 @@
   max-width: 300px;
 }
 
+.filterInput {
+  margin-left: 10px;
+}
+
 .vehicleTypeSection {
   margin-bottom: 24px;
 }
