@@ -1,12 +1,66 @@
-# React + Vite
+# Your Travel Tracks 🌍
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Your Travel Tracks** is a web application for browsing and booking campervans. Built with React, Vite, Redux, React Router, and localStorage for saving user favorites.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Getting Started
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Node.js (v16+)
+- npm or Yarn
+
+### Installation
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/Natalina686/your-travel-tracks.git
+    cd your-travel-tracks
+    ```
+
+2. Install dependencies:
+
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+3. Start the development server:
+
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
+
+4. Open in your browser:
+
+    ```
+    http://localhost:3000
+    ```
+
+---
+
+## 📁 Project Structure
+
+```text
+/
+├─ public/
+│   └─ index.html            — Base HTML file
+├─ src/
+│   ├─ components/           — Shared UI components
+│   ├─ pages/
+│   │   ├─ CamperCard.jsx    — Camper preview card
+│   │   └─ CamperDetails.jsx — Detailed camper view
+│   ├─ redux/
+│   │   ├─ campersSlice.js
+│   │   └─ favoritesSlice.js
+│   ├─ App.jsx               — Main app with routing
+│   └─ index.jsx             — Entry point
+├─ package.json
+├─ vite.config.js
+└─ README.md
+
