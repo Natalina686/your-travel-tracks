@@ -46,8 +46,8 @@ Filters:
     <div className={styles.buttonGroup}>
         <button
             type="button"
-            className={`${styles.filterButton} ${filters.form === 'van' ? styles.active : ''}`}
-            onClick={() => dispatch(setForm('van'))}
+            className={`${styles.filterButton} ${filters.form === 'panelTruck' ? styles.active : ''}`}
+            onClick={() => dispatch(setForm('panelTruck'))}
         >
            <img src={vanIcon} alt="Van icon" className={styles.icon} />
   
