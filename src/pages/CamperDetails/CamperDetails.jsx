@@ -5,6 +5,7 @@ import { loadCampers } from '../../redux/campersSlice';
 import styles from './CamperDetails.module.css';
 import Tabs from "../../components/Tabs/Tabs";
 import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import {toast} from 'react-toastify';
 
 
@@ -23,6 +24,8 @@ const CamperDetails = () => {
   name: '',
   email: '',
 });
+
+
 
 
 const handleChange = (e) => {
@@ -82,19 +85,18 @@ const handleSubmit = (e) => {
         
         <div className={styles.details}>
       <h1>{name}</h1>
-      <p><strong>Price:</strong> {price.toLocaleString('en-US')},00€</p>
+      <p><strong>Price:</strong> {price.toLocaleString('en-US')}.00€</p>
       <p><strong>Location:</strong> {location}</p>
       <p><strong>Rating:</strong> ⭐ {rating}</p>
-      <p>{description}</p>
 
       <div className={styles.gallery}>
         {gallery.map((img, idx) => (
           <img key={idx} src={img.thumb} alt={`${name} image ${idx + 1}`} />
         ))}
-      
     </div>
     
-      
+      <p>{description}</p>
+
       <Tabs onTabChange={setActiveTab} />
 
       {activeTab === 'Features' &&  details &&(
@@ -127,22 +129,36 @@ const handleSubmit = (e) => {
         </div>
       )}
 
-      {activeTab === 'Booking' && (
+      
         <div className={styles.tabContent}>
           <form className={styles.bookingForm} onSubmit={handleSubmit}>
-            <label>
-              Name:
-              <input type="text" name="name" value={formData.name}
-      onChange={handleChange} required />
-            </label>
-            <label>
-              Email:
-              <input type="email" name="email" value={formData.email}
-      onChange={handleChange} required />
-            </label>
-            <label>
-              Booking dates:
-              <div className={styles.datePickers}>
+<h3 className={styles.formTitle}>Book your campervan now</h3>
+      <p className={styles.formSubtitle}>
+        Stay connected! We are always ready to help you.
+      </p>
+<input
+        type="text"
+        name="name"
+        placeholder="Name*"
+        value={formData.name}
+        onChange={handleChange}
+        required
+        className={styles.input}
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Email*"
+        value={formData.email}
+        onChange={handleChange}
+        required
+        className={styles.input}
+      />
+
+    <label className={styles.label}>
+  Booking dates*
+  <div className={styles.datePickers}>
     <DatePicker
       selected={startDate}
       onChange={(date) => setStartDate(date)}
@@ -150,6 +166,8 @@ const handleSubmit = (e) => {
       startDate={startDate}
       endDate={endDate}
       placeholderText="Start date"
+      className={styles.input}
+      dateFormat="dd/MM/yyyy"
     />
     <DatePicker
       selected={endDate}
@@ -159,13 +177,23 @@ const handleSubmit = (e) => {
       endDate={endDate}
       minDate={startDate}
       placeholderText="End date"
+      className={styles.input}
+      dateFormat="dd/MM/yyyy"
     />
   </div>
-            </label>
-            <button type="submit">Book now</button>
+</label>
+
+      <textarea
+        name="comment"
+        placeholder="Comment"
+        value={formData.comment}
+        onChange={handleChange}
+        className={styles.textarea}
+      />
+            <button type="submit" className={styles.submitButton}>Send</button>
           </form>
         </div>
-      )}
+      
     </div>
     
     )

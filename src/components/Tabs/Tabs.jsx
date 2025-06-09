@@ -14,7 +14,7 @@ const Tabs =({onTabChange}) => {
 
     return (
         <div className={styles.tabs}>
-            {['Features', 'Reviews', 'Booking'].map(tab => (
+            {['Features', 'Reviews'].map(tab => (
                 <button
                 key={tab}
                 className={activeTab === tab ? styles.active : styles.tab}

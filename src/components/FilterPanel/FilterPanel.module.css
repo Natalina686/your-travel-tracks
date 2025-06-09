@@ -7,3 +7,112 @@
   gap: 1rem;
   max-width: 300px;
 }
+
+.vehicleTypeSection {
+  margin-bottom: 24px;
+}
+
+.sectionLabel {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #101828;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 12px;
+}
+
+.filterButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: 500;
+  color: #101828;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100px;
+  text-align: center;
+}
+
+.filterButton img {
+  width: 32px;
+  height: 32px;
+}
+
+.filterButton:hover {
+  border-color: #ff7e00;
+}
+
+.active {
+  border: 1px solid #e44848;
+  background-color: #fdf0f0;
+}
+
+.equipmentSection {
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.equipmentButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.equipmentBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: 500;
+  color: #101828;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100px;
+  text-align: center;
+}
+
+.equipmentBtn svg {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 6px;
+}
+
+.equipmentBtn.active {
+  border: 1px solid #e44848;
+  background-color: #fdf0f0;
+}
+
+.button {
+  background-color: #e44848;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 200px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #d03c3c;
+}
