@@ -26,7 +26,8 @@ const handleShowMore = () => {
             
                 <div className={styles.header}>
                     <h2 className={styles.title}>{name}</h2>
-                    <span className={styles.price}>{price.toLocaleString('en-US')},00€</span>
+                    <span className={styles.price}>€{price.toFixed(2)}</span>
+                    
                 </div>
                 <div className={styles.meta}>
                     <span className={styles.location}>{location}</span>

@@ -8,6 +8,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {toast} from 'react-toastify';
 import { Tv, Snowflake, Utensils, Fan, CupSoda } from 'lucide-react';
+import {toggleFavorite} from '../../redux/favoritesSlice';
 
 
 
@@ -19,8 +20,18 @@ const CamperDetails = () => {
     const [activeTab, setActiveTab] = useState('Features');
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
-
     const {items: campers, status } = useSelector(state => state.campers);
+
+const favorites = useSelector(state => state.favorites.items);
+
+const camper = campers.find(c => String(c.id) === id);
+const isFavorite = camper ? favorites.includes(camper.id) : false; 
+
+const handleToggleFavorite = () => {
+  if (camper) {
+    dispatch(toggleFavorite(camper.id));
+  }
+};
 
     const [formData, setFormData] = useState({
   name: '',
@@ -56,7 +67,7 @@ const handleSubmit = (e) => {
   toast.success('Booking submitted successfully!');
 
  
-  setFormData({ name: '', email: '' });
+  setFormData({ name: '', email: '', comment: '', });
   setStartDate(null);
   setEndDate(null);
 };
@@ -76,7 +87,7 @@ const handleSubmit = (e) => {
         return <p>Failed to load camper details.</p>
     }
 
-    const camper = campers.find(c => String(c.id) === id);
+    
 
     if (!camper) {
         return <p>Camper not found.</p>;
@@ -89,7 +100,20 @@ console.log('Camper:', camper);
         
         <div className={styles.details}>
       <h1>{name}</h1>
-      <p><strong>Price:</strong> {price.toLocaleString('en-US')}.00€</p>
+      <p><strong>Price:</strong> €{price.toFixed(2)}</p>
+      <button
+  onClick={handleToggleFavorite}
+  style={{
+    
+    color: isFavorite ? 'red' : 'gray',
+    background: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+  }}
+  aria-label="Toggle favorite"
+>
+  {isFavorite ? '❤️' : '🤍'}
+</button>
       <p><strong>Location:</strong> {location}</p>
       <p><strong>Rating:</strong> ⭐ {rating}</p>
 

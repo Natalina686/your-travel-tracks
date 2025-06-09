@@ -238,3 +238,11 @@
   top: 20px;
 }
 
+.favoriteButton {
+  font-size: 24px;
+  color: r#e44848;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
